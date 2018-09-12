@@ -9,3 +9,4 @@ seg = foreach segregate generate (chararray) $0 as country,(int) $1 as invno,(ch
   ctrgroup = GROUP distincts by country;
   values = foreach ctrgroup generate group as country,COUNT(distincts.invno) as notrans:int,SUM(distincts.nofitems) as nofitems:int;
   avgitems = foreach values generate country,nofitems/noftrans as avgitems:float;
+.
